@@ -1,0 +1,22 @@
+#include <stack>
+#include <string>
+using namespace std;
+
+
+
+
+// Mentukan apakah karakter adalah salah satu dari empat operator standar.
+bool isOperator(char character) {
+    if (character == '+' || character == '-' || character == '*' || character == '/') {
+        return true;
+    }
+    return false;
+}
+
+// Jika karakter bukan operator atau tanda kurung, maka diasumsikan sebagai operand.
+bool isOperand(char character) {
+    if (!isOperator(character) && character != '(' && character != ')') {
+        return true;
+    }
+    return false;
+}
