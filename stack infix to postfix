@@ -40,6 +40,18 @@ int main()
     cin >> input;
 
     char *cPtr = input;
+    while (*cPtr != '\0') {
+        if (isOperand(*cPtr)) { postFixString += *cPtr; }
+        else if (isOperator(*cPtr)) {
+            while (!opStack.empty() && opStack.top() != '(' && compareOperators(opStack.top(),*cPtr) <= 0) {
+                postFixString += opStack.top();
+                opStack.pop();
+            }
+            opStack.push(*cPtr);
+        }
+
+        else if (*cPtr == '(') { opStack.push(*cPtr); } 
+        else if (*cPtr == ')') {
     
     
     return 0;
